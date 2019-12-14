@@ -1,19 +1,21 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { View, Text } from 'react-native'
+
+import Card from './Components/Card/Card/Card'
+import CardBody from './Components/Card/CardBody/CardBody'
+import CardFooter from './Components/Card/CardFooter/CardFooter'
+import CardHeader from './Components/Card/CardHeader/CardHeader'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+	return (
+		<View>
+			<Card>
+				<CardHeader>Card Header</CardHeader>
+				<CardBody>Card Body 1</CardBody>
+				<CardBody>Card Body 2</CardBody>
+				<CardBody>Card Body 3</CardBody>
+				<CardFooter>Card Footer</CardFooter>
+			</Card>
+		</View>
+	)
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

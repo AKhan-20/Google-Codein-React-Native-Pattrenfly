@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text, TouchableHighlight } from 'react-native'
+import { View, Text } from 'react-native'
 
 import Card from './Components/Card/Card/Card'
 import CardBody from './Components/Card/CardBody/CardBody'
 import CardFooter from './Components/Card/CardFooter/CardFooter'
 import CardHeader from './Components/Card/CardHeader/CardHeader'
 import Modal from './Components/Modal/Modal/Modal'
+import Button from './Components/Button/Button/Button'
 
 export default class App extends React.Component {
 	state = {
@@ -27,38 +28,51 @@ export default class App extends React.Component {
 					<CardFooter>Card Footer</CardFooter>
 				</Card>
 
-				<TouchableHighlight
+				<Button title={'Primary'} variant='primary' />
+				<Button title={'Secondary'} variant='secondary' />
+				<Button title={'Tertiary'} variant='tertiary' />
+				<Button title={'Danger'} variant='danger' />
+				<Button title={'Control'} variant='control' />
+
+				<Button
+					title='Open Modal'
 					onPress={() => {
 						this.toggleModal(true)
 					}}
-				>
-					<Text>Open Modal</Text>
-				</TouchableHighlight>
+				/>
 
 				<Modal
 					title='Model Header'
 					isVisible={this.state.modalVisible}
 					actions={[
-						<TouchableHighlight
-							key={1}
+						<Button
+							title='Continue'
+							variant='primary'
+							customStyles={{ padding: 10, marginHorizontal: 0 }}
 							onPress={() => {
 								this.toggleModal(!this.state.modalVisible)
 							}}
-						>
-							<Text>Continue</Text>
-						</TouchableHighlight>,
-						<TouchableHighlight
-							key={2}
+						/>,
+						<Button
+							title='Cancel'
+							variant='secondary'
+							customStyles={{ padding: 10, marginHorizontal: 0 }}
 							onPress={() => {
 								this.toggleModal(!this.state.modalVisible)
 							}}
-						>
-							<Text>Cancel</Text>
-						</TouchableHighlight>
+						/>
 					]}
 				>
 					<View>
-						<Text>Modal is open!</Text>
+						<Text>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+							veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+							commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+							velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+							mollit anim id est laborum.
+						</Text>
 					</View>
 				</Modal>
 			</View>

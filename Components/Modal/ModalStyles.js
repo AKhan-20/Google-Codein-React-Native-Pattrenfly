@@ -1,12 +1,16 @@
 import { StyleSheet } from 'react-native'
+import { Dimensions } from 'react-native'
+
+const screenHeight = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
 	modal: {
 		backgroundColor: 'white',
 		marginHorizontal: 15,
-		marginVertical: 200,
 		padding: 10,
-		elevation: 500
+		elevation: 500,
+		position: 'absolute',
+		top: screenHeight / 4
 	},
 	title: {
 		fontSize: 20,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 
 import Card from './Components/Card/Card/Card'
 import CardBody from './Components/Card/CardBody/CardBody'
@@ -7,10 +7,16 @@ import CardFooter from './Components/Card/CardFooter/CardFooter'
 import CardHeader from './Components/Card/CardHeader/CardHeader'
 import Modal from './Components/Modal/Modal/Modal'
 import Button from './Components/Button/Button/Button'
+import Alert from './Components/Alert/Alert/Alert'
 
 export default class App extends React.Component {
 	state = {
-		modalVisible: false
+		modalVisible: false,
+		alertOneVisible: true,
+		alertTwoVisible: true,
+		alertThreeVisible: true,
+		alertFourVisible: true,
+		alertFiveVisible: true
 	}
 
 	toggleModal = visible => {
@@ -19,7 +25,7 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<View>
+			<ScrollView>
 				<Card>
 					<CardHeader>Card Header</CardHeader>
 					<CardBody>Card Body 1</CardBody>
@@ -75,7 +81,73 @@ export default class App extends React.Component {
 						</Text>
 					</View>
 				</Modal>
-			</View>
+
+				{this.state.alertOneVisible && (
+					<Alert
+						title={'My Alert'}
+						variant='default'
+						action={
+							<Text onPress={() => this.setState({ alertOneVisible: false })}>X</Text>
+						}
+					>
+						<Text>Default</Text>
+					</Alert>
+				)}
+
+				{this.state.alertTwoVisible && (
+					<Alert
+						title={'My Alert'}
+						variant='info'
+						action={
+							<Text onPress={() => this.setState({ alertTwoVisible: false })}>X</Text>
+						}
+					>
+						<Text>Info</Text>
+					</Alert>
+				)}
+
+				{this.state.alertThreeVisible && (
+					<Alert
+						title={'My Alert'}
+						variant='success'
+						action={
+							<Text onPress={() => this.setState({ alertThreeVisible: false })}>
+								X
+							</Text>
+						}
+					>
+						<Text>Success</Text>
+					</Alert>
+				)}
+
+				{this.state.alertFourVisible && (
+					<Alert
+						title={'My Alert'}
+						variant='warning'
+						action={
+							<Text onPress={() => this.setState({ alertFourVisible: false })}>
+								X
+							</Text>
+						}
+					>
+						<Text>Warning</Text>
+					</Alert>
+				)}
+
+				{this.state.alertFiveVisible && (
+					<Alert
+						title={'My Alert'}
+						variant='danger'
+						action={
+							<Text onPress={() => this.setState({ alertFiveVisible: false })}>
+								X
+							</Text>
+						}
+					>
+						<Text>Danger</Text>
+					</Alert>
+				)}
+			</ScrollView>
 		)
 	}
 }
